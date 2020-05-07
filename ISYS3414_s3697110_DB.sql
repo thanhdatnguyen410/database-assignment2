@@ -290,3 +290,5 @@ from Category C1, Equipment E1,  Transaction T
 where E1.cate_name = C1.cate_name
 and T.equip_code = E1.equip_code
 and MONTH(hiring_date) = MONTH(CURRENT_DATE)
+
+-- 2.For a particular business customer, show the current items on hire with expected return dates plus any previous complaints that made by that customer which involved a replacement of equipment or a full refund.
