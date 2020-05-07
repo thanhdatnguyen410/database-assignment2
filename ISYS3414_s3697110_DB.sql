@@ -215,12 +215,16 @@ INSERT INTO supplier (sup_name, sup_contact, sup_address) VALUES ('Peiyork Emble
 
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (100600, 'Shovel', 'Gorilla', 25, 'Centurion', 'Gardening Equipment');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (100700, 'Hand Pruner', 'Felco', 20, 'Amazon', 'Gardening Equipment');
+INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (100800, 'Hand Sprayer', 'Chapin', 17, 'Amazon', 'Gardening Equipment');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (200340, 'Compaction Plate', 'Evolution Hulk', 100, 'Bosch', 'Building Equipment');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (200350, 'Light Tower', 'Wacker Neuson', 100, 'Lake Dale', 'Building Equipment');
+INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (200350, 'Submersible Pump', 'Tsurumi Pump', 30, 'Hire Station', 'Building Equipment');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (300217, 'Scissor Lifts', 'HSS', 150, 'Dale Lifting', 'Access Equipment');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (300230, 'Ladder', 'Pro Shelf', 80, 'Speedy', 'Access Equipment');
+INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (300280, 'Boom Lift Electric', 'Pro Lifts', 250, 'Coates Hire', 'Access Equipment');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (400105, 'Telescopic Rod', 'Beta Tools', 50, 'Craftsman', 'Car Maintenance');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (400130, 'Battery Starter', 'Torxe', 70, 'Carid', 'Car Maintenance');
+INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (400180, 'Air Compressor', 'Airmaster', 100, 'Machine Mart', 'Car Maintenance');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (500505, 'Portable Welders', 'Bell', 70, 'Peiyork Emblem', 'Miscellaneous');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (600550, 'Jigsaw', 'Dewalt', 100, 'CPOoutlets', 'Power Tools');
 INSERT INTO equipment (equip_code, equip_name, brand, price, sup_name, cate_name) VALUES (700870, 'Spray Gun', 'Erbauer', 30, 'Screwfix', 'Decorating Equipment');
@@ -231,9 +235,26 @@ INSERT INTO stock (equip_code, equip_name, cate_name, quantity) VALUES (200340, 
 INSERT INTO stock (equip_code, equip_name, cate_name, quantity) VALUES (300217, 'Scissor Lifts', 'Access Equipment', 2);
 INSERT INTO stock (equip_code, equip_name, cate_name, quantity) VALUES (400105, 'Telescopic Rod', 'Car Maintenance', 6);
 INSERT INTO stock (equip_code, equip_name, cate_name, quantity) VALUES (500505, 'Portable Welders', 'Miscellaneous', 10);
+INSERT INTO stock (equip_code, equip_name, cate_name, quantity) VALUES (800099, 'Air-conditioner', 'Heating and Lightning', 8);
 
 INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
 VALUES (41, '2020-05-01',4,2,120,537.6,'2020-05-05',100600,3697822);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
+VALUES (41, '2020-05-01',4,2,120,'2020-05-05',100600,3697822);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
+VALUES (55, '2020-04-14',2,3,300,'2020-05-03',200340,3697110);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
+VALUES (68, '2020-04-15',1,1,200,'2020-04-22',300217,3695769);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
+VALUES (70, '2020-04-28',5,4,350,'2020-05-02',400105,4697272);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
+VALUES (72, '2020-05-02',3,6,290,'2020-05-04',500505,4698612);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+VALUES (41, '2020-05-01',4,2,120,537.6,'2020-05-05',100600,3697822);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+VALUES (42, '2020-05-01',4,2,120,537.6,'2020-05-05',100600,3695972);
 INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
 VALUES (55, '2020-04-14',2,3,300,672,'2020-05-03',200340,3697110);
 INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
@@ -242,6 +263,9 @@ INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,
 VALUES (70, '2020-04-28',5,4,350,1470,'2020-05-02',400105,4697272);
 INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
 VALUES (72, '2020-05-02',3,6,290,584.64,'2020-05-04',500505,4698612);
+
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+VALUES (72, '2020-05-02',3,6,290,584.64,'2020-05-04',800099,4695201);
 
 INSERT INTO replacement (actual_date, equip_code, cus_ID) VALUES ('2020-05-06', 100600, 3697822);
 INSERT INTO replacement (actual_date, equip_code, cus_ID) VALUES ('2020-05-02', 200340, 3697110);
@@ -293,6 +317,23 @@ from Category C, Equipment E,  Transaction T
 where E.cate_name = C.cate_name
 and T.equip_code = E.equip_code
 and MONTH(hiring_date) = MONTH(CURRENT_DATE)
-group by C.cate_name
+group by C.cate_name;
 
 -- 2. For a particular business customer, show the current items on hire with expected return dates plus any previous complaints that made by that customer which involved a replacement of equipment or a full refund.
+
+
+-- 2.For a particular business customer, show the current items on hire with expected return dates plus any previous complaints that made by that customer which involved a replacement of equipment or a full refund.
+
+-- 2. For a particular business customer, show the current items on hire with expected return dates plus any previous complaints that made by that customer which involved a replacement of equipment or a full refund.
+-- 4. For a given category, the total number of equipment (i.e. items) under that category available in stock and the number currently on hire to customers.
+        -- Note: You should have at least three items under each category to display appropriate output.
+select E.cate_name, count(S.equip_code), count(T.equip_code)
+From equipment E, transaction T, stock S, category C
+where E.equip_code = T.equip_code
+and E.equip_code = S.equip_code
+and E.cate_name = C.cate_name
+group by cate_name;
+
+
+-- branch test
+-- 123
