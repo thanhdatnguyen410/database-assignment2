@@ -52,6 +52,7 @@ CREATE TABLE Transaction
     quantity                INTEGER(5)  NOT NULL,
     delivery_time           FLOAT,
     cost                    FLOAT,
+    total_cost              FLOAT,
     expected_return_date    DATE        NOT NULL,
     equip_code              INTEGER     NOT NULL,
     cus_ID                  INTEGER     NOT NULL,
@@ -228,16 +229,16 @@ INSERT INTO stock (equip_code, equip_name, cate_name, quantity) VALUES (300217, 
 INSERT INTO stock (equip_code, equip_name, cate_name, quantity) VALUES (400105, 'Telescopic Rod', 'Car Maintenance', 6);
 INSERT INTO stock (equip_code, equip_name, cate_name, quantity) VALUES (500505, 'Portable Welders', 'Miscellaneous', 10);
 
-INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
-VALUES (41, '2020-05-01',4,2,120,'2020-05-05',100600,3697822);
-INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
-VALUES (55, '2020-04-14',2,3,300,'2020-05-03',200340,3697110);
-INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
-VALUES (68, '2020-04-15',1,1,200,'2020-04-22',300217,3695769);
-INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
-VALUES (70, '2020-04-28',5,4,350,'2020-05-02',400105,4697272);
-INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost, expected_return_date, equip_code, cus_ID)
-VALUES (72, '2020-05-02',3,6,290,'2020-05-04',500505,4698612);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+VALUES (41, '2020-05-01',4,2,120,537.6,'2020-05-05',100600,3697822);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+VALUES (55, '2020-04-14',2,3,300,672,'2020-05-03',200340,3697110);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+VALUES (68, '2020-04-15',1,1,200,224,'2020-04-22',300217,3695769);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+VALUES (70, '2020-04-28',5,4,350,1960,'2020-05-02',400105,4697272);
+INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
+VALUES (72, '2020-05-02',3,6,290,974.4,'2020-05-04',500505,4698612);
 
 INSERT INTO replacement (actual_date, equip_code, cus_ID) VALUES ('2020-05-06', 100600, 3697822);
 INSERT INTO replacement (actual_date, equip_code, cus_ID) VALUES ('2020-05-02', 200340, 3697110);
@@ -285,8 +286,10 @@ COMMIT;
 -- QUERY
 -- 5.Summary of income from hiring equipment for last month. The result should be sub-divided according to equipment categories.
 
-select E1.equip_name
-from Category C1, Equipment E1,  Transaction T
-where E1.cate_name = C1.cate_name
-and T.equip_code = E1.equip_code
+select C.cate_name, sum(T.total_cost)
+from Category C, Equipment E,  Transaction T
+where E.cate_name = C.cate_name
+and T.equip_code = E.equip_code
 and MONTH(hiring_date) = MONTH(CURRENT_DATE)
+group by C.cate_name
+
