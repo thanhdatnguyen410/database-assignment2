@@ -282,3 +282,11 @@ COMMIT;
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
+-- QUERY
+-- 5.Summary of income from hiring equipment for last month. The result should be sub-divided according to equipment categories.
+
+select E1.equip_name
+from Category C1, Equipment E1,  Transaction T
+where E1.cate_name = C1.cate_name
+and T.equip_code = E1.equip_code
+and MONTH(hiring_date) = MONTH(CURRENT_DATE)
