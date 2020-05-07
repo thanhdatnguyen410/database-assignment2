@@ -1,3 +1,6 @@
+
+
+
 SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS Equipment;
 DROP TABLE IF EXISTS Supplier;
@@ -236,9 +239,9 @@ VALUES (55, '2020-04-14',2,3,300,672,'2020-05-03',200340,3697110);
 INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
 VALUES (68, '2020-04-15',1,1,200,224,'2020-04-22',300217,3695769);
 INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
-VALUES (70, '2020-04-28',5,4,350,1960,'2020-05-02',400105,4697272);
+VALUES (70, '2020-04-28',5,4,350,1470,'2020-05-02',400105,4697272);
 INSERT INTO transaction (trans_code, hiring_date, quantity, delivery_time, cost,total_cost, expected_return_date, equip_code, cus_ID)
-VALUES (72, '2020-05-02',3,6,290,974.4,'2020-05-04',500505,4698612);
+VALUES (72, '2020-05-02',3,6,290,584.64,'2020-05-04',500505,4698612);
 
 INSERT INTO replacement (actual_date, equip_code, cus_ID) VALUES ('2020-05-06', 100600, 3697822);
 INSERT INTO replacement (actual_date, equip_code, cus_ID) VALUES ('2020-05-02', 200340, 3697110);
@@ -285,8 +288,7 @@ COMMIT;
 
 -- QUERY
 -- 5.Summary of income from hiring equipment for last month. The result should be sub-divided according to equipment categories.
-
-select C.cate_name, sum(T.total_cost)
+select C.cate_name, sum(T.total_cost) as Sum_income
 from Category C, Equipment E,  Transaction T
 where E.cate_name = C.cate_name
 and T.equip_code = E.equip_code
