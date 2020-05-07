@@ -295,3 +295,4 @@ and T.equip_code = E.equip_code
 and MONTH(hiring_date) = MONTH(CURRENT_DATE)
 group by C.cate_name
 
+-- 2. For a particular business customer, show the current items on hire with expected return dates plus any previous complaints that made by that customer which involved a replacement of equipment or a full refund.
